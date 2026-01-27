@@ -85,10 +85,93 @@ document.addEventListener('DOMContentLoaded', () => {
         modal.style.display = "none";
     }
 
-    // Close Modal (Outside Click)
+    // --- About Modal Logic ---
+    const aboutModal = document.getElementById("about-modal");
+    const aboutBtn = document.getElementById("read-more-btn");
+    const aboutCloseSpan = document.getElementsByClassName("about-close-btn")[0];
+
+    if (aboutBtn) {
+        aboutBtn.onclick = function(e) {
+            e.preventDefault();
+            aboutModal.style.display = "block";
+        }
+    }
+
+    if (aboutCloseSpan) {
+        aboutCloseSpan.onclick = function() {
+            aboutModal.style.display = "none";
+        }
+    }
+
+
+
+    // --- Regulatory Compliance Modal Logic ---
+    const regModal = document.getElementById("regulatory-modal");
+    const regBtn = document.getElementById("regulatory-service-box");
+    const regCloseSpan = document.getElementsByClassName("regulatory-close-btn")[0];
+
+    if (regBtn) {
+        regBtn.onclick = function() {
+            regModal.style.display = "block";
+        }
+    }
+
+    if (regCloseSpan) {
+        regCloseSpan.onclick = function() {
+            regModal.style.display = "none";
+        }
+    }
+
+    // --- Import & Export Modal Logic ---
+    const impExpModal = document.getElementById("import-export-modal");
+    const impExpBtn = document.getElementById("import-export-service-box");
+    const impExpCloseSpan = document.getElementsByClassName("import-export-close-btn")[0];
+
+    if (impExpBtn) {
+        impExpBtn.onclick = function() {
+            impExpModal.style.display = "block";
+        }
+    }
+
+    if (impExpCloseSpan) {
+        impExpCloseSpan.onclick = function() {
+            impExpModal.style.display = "none";
+        }
+    }
+
+    // --- PVP Modal Logic ---
+    const pvpModal = document.getElementById("pvp-modal");
+    const pvpBtn = document.getElementById("pvp-service-box");
+    const pvpCloseSpan = document.getElementsByClassName("pvp-close-btn")[0];
+
+    if (pvpBtn) {
+        pvpBtn.onclick = function() {
+            pvpModal.style.display = "block";
+        }
+    }
+
+    if (pvpCloseSpan) {
+        pvpCloseSpan.onclick = function() {
+            pvpModal.style.display = "none";
+        }
+    }
+
+    // Update window.onclick to handle all modals
     window.onclick = function(event) {
         if (event.target == modal) {
             modal.style.display = "none";
+        }
+        if (event.target == aboutModal) {
+            aboutModal.style.display = "none";
+        }
+        if (event.target == regModal) {
+            regModal.style.display = "none";
+        }
+        if (event.target == impExpModal) {
+            impExpModal.style.display = "none";
+        }
+        if (event.target == pvpModal) {
+            pvpModal.style.display = "none";
         }
     }
 

@@ -110,17 +110,17 @@
         <div class="container">
             <h2 class="section-title">Liaison & Consultancy Services</h2>
             <div class="grid-3">
-                <div class="service-box">
+                <div class="service-box" id="regulatory-service-box">
                     <i class="fas fa-file-contract icon"></i>
                     <h3>Regulatory Compliance</h3>
                     <p>Recognition and renewal of In-house R&D units from DSIR and Seed License renewals.</p>
                 </div>
-                <div class="service-box">
+                <div class="service-box" id="import-export-service-box">
                     <i class="fas fa-globe-asia icon"></i>
                     <h3>Import & Export</h3>
                     <p>Documentation for Germplasm import from overseas institutions and NBPGR coordination.</p>
                 </div>
-                <div class="service-box">
+                <div class="service-box" id="pvp-service-box">
                     <i class="fas fa-seedling icon"></i>
                     <h3>Plant Variety Protection</h3>
                     <p>Assistance with PPV&FRA registration, DUS testing submission, and candidate variety fees.</p>
@@ -143,7 +143,7 @@
                     <p>Founded by <strong>Mr. Yogendra Gupta</strong>, who brings over 28 years of industry experience
                         (including tenures at Sungro Seeds & Mahyco), we bridge the gap for reliable, locally sourced
                         quality materials.</p>
-                    <!-- <button class="btn-secondary">Read Our Story</button> -->
+                    <button class="btn-secondary" id="read-more-btn">Read Our Story</button>
                 </div>
             </div>
         </div>
@@ -219,7 +219,7 @@
             </div>
         </div>
         <div class="copyright">
-            <p>&copy; 2025 Ram Ratan & Company. All Rights Reserved.</p>
+            <p>&copy; 2026 Ram Ratan & Company. All Rights Reserved.</p>
         </div>
     </footer>
 
@@ -232,7 +232,7 @@
                 <div class="contact-form-container">
                     <h3 class="form-title">Get in Touch</h3>
                     <p class="form-subtitle">Fill out the form below, and we'll get back to you shortly.</p>
-                    
+
                     <form class="contact-form" id="contactForm">
                         <div class="form-row">
                             <div class="form-group">
@@ -242,11 +242,11 @@
                                 <input type="text" name="lastName" placeholder="Last Name *" required>
                             </div>
                         </div>
-                        
+
                         <div class="form-group">
                             <input type="text" name="company" placeholder="Company Name *">
                         </div>
-                        
+
                         <div class="form-group">
                             <input type="text" name="country" placeholder="Country *">
                         </div>
@@ -254,18 +254,171 @@
                         <div class="form-group">
                             <input type="email" name="email" placeholder="Email *" required>
                         </div>
-                        
+
                         <div class="form-group">
                             <input type="tel" name="mobile" placeholder="Mobile *">
                         </div>
-                        
+
                         <div class="form-group">
                             <textarea name="message" placeholder="Message *" rows="4"></textarea>
                         </div>
-                        
+
                         <button type="submit" class="btn-submit">Submit</button>
                     </form>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Us Modal -->
+    <div id="about-modal" class="modal">
+        <div class="modal-content about-modal-content">
+            <span class="close-btn about-close-btn">&times;</span>
+            <h2>About Ram Ratan & Co.</h2>
+            <div class="modal-body scrollable-content">
+                <h3>Our Vision</h3>
+                <p>To be a catalyst for agricultural innovation by developing high-quality, cost-effective research
+                    solutions that
+                    empower sustainable farming and contribute meaningfully to the advancement of agriculture in the
+                    developing
+                    world.</p>
+
+                <h3>Who We Are</h3>
+                <p>Established in 2025, Ram Ratan & Company (RRC) is a specialty materials company delivering innovative
+                    solutions for agricultural research and seed testing. We are pioneers in the manufacturing of
+                    pollination
+                    bags, seed packets, plant labels, germination papers, and are recognized quality leaders in nylon
+                    cage nets,
+                    specialized plasticware, and other niche agricultural products.</p>
+
+                <p>In addition, we are well equipped to support agricultural seed companies with end-to-end consultancy
+                    services
+                    covering regulatory compliance and liaison activities. Our expertise includes in-house R&D unit
+                    recognition
+                    and renewal with DSIR, export and import of seeds, overseas germplasm import, Plant Variety
+                    Protection (PVP)
+                    and seed licensing services.</p>
+
+                <p>We serve many of India’s leading seed companies, seed testing laboratories, and agricultural
+                    institutions,
+                    while also catering to select adjacent markets. Headquartered in New Delhi, RRC has a presence
+                    across more
+                    than 30 distribution points in India, supported by a growing network of distribution partners across
+                    the
+                    EMEA and APAC regions. This extensive distribution network enables timely delivery of our solutions,
+                    supporting customers in their time-sensitive research activities.</p>
+
+                <h3>Our Team</h3>
+                <p>Our management and advisory teams bring together professionals from diverse backgrounds, enabling us
+                    to offer
+                    comprehensive and innovative solutions for agricultural research and testing. The team combines
+                    expertise
+                    across agricultural research, farm operations, manufacturing, supply chain management, and quality
+                    assurance,
+                    ensuring a well-rounded approach to problem-solving.</p>
+
+                <p>The promoters have deep-rooted experience within the agricultural research ecosystem, with
+                    long-standing
+                    associations across seed companies, research institutions, and testing laboratories. This strong
+                    industry
+                    linkage allows the leadership to anticipate evolving research needs, understand field-level
+                    challenges, and
+                    translate them into practical, reliable, and scalable solutions.</p>
+
+                <p>Their collective insight and hands-on experience guide the company’s strategic direction, reinforcing
+                    our
+                    commitment to quality, innovation, and customer-centricity in agricultural research and testing.</p>
+
+                <h3>Founder's Story</h3>
+                <p>Ram Ratan & Company was founded by Mr. Yogendra Gupta, a seasoned professional with over 28 years of
+                    experience in the agricultural research industry, including tenures at Sungro Seeds Pvt. Ltd. and
+                    Mahyco
+                    Pvt. Ltd. Through his extensive industry exposure, he identified the lack of reliable, locally
+                    sourced
+                    quality materials as a critical challenge in agricultural research and testing. This insight led to
+                    the
+                    establishment of RRC with a vision to build a comprehensive ecosystem for the development and supply
+                    of such
+                    specialty materials.</p>
+
+                <p>Today, RRC offers products developed specifically for the Indian market that rival global benchmarks,
+                    establishing the company as a market leader in specialty materials for agricultural research and
+                    seed testing.
+                </p>
+
+                <h3>Quality Standard</h3>
+                <p>Ram Ratan & Co. places a strong emphasis on robust processes and stringent quality control to
+                    consistently
+                    deliver high-quality products and services. Our manufacturing units are equipped with best-in-class
+                    machinery and skilled workers, ensuring excellence across product development, manufacturing, and
+                    quality
+                    assurance for all materials.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Regulatory Compliance Modal -->
+    <div id="regulatory-modal" class="modal">
+        <div class="modal-content about-modal-content">
+            <span class="close-btn regulatory-close-btn">&times;</span>
+            <div class="modal-body scrollable-content">
+                <p><strong>OUR DEDICATED TEAMS WORK IN CLOSE COLLABORATION WITH HIGHLY SKILLED PROFESSIONALS TO DELIVER
+                        CONSISTENT VALUE.</strong></p>
+                <p>WE ASPIRE TO BECOME THE PREFERRED PARTNER FOR SEED COMPANIES ACROSS INDIA. OUR OPERATIONS ARE FIRMLY
+                    GUIDED BY THREE CORE PRINCIPLES—RESPONSIBILITY, ETHICAL BUSINESS PRACTICES, AND STRICT
+                    CONFIDENTIALITY. WE TAKE PRIDE IN UPHOLDING THESE VALUES WHILE DELIVERING RELIABLE AND PROFESSIONAL
+                    SERVICES.</p>
+                <br>
+                <p><strong>WE SUPPORT RESEARCH ORGANIZATIONS IN THE FOLLOWING AREAS:</strong></p>
+                <ul>
+                    <li>EXPORT AND IMPORT DOCUMENTATION.</li>
+                    <li>IMPORT OF GERMPLASM FROM OVERSEAS INSTITUTIONS.</li>
+                    <li>RENEWAL OF SEED LICENSE AND INCLUSION OF NEW PRODUCT.</li>
+                    <li>RECOGNITION AND RENEWAL OF IN-HOUSE R&D UNIT FROM DSIR.</li>
+                    <li>PLANT VARIETY PROTECTION RELATED SERVICES.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Import & Export Modal -->
+    <div id="import-export-modal" class="modal">
+        <div class="modal-content about-modal-content">
+            <span class="close-btn import-export-close-btn">&times;</span>
+            <h2>Import & Export Services</h2>
+            <div class="modal-body scrollable-content">
+                <h3>Export and Import documentation:</h3>
+                <p>Cross-border business growth can be transformative; however, managing the complexities of
+                    international shipping is far from simple. Regulatory compliance, logistics coordination, and
+                    customs clearance are among the many challenges businesses commonly face. This is where our
+                    specialized professional team adds value. We deliver comprehensive import and export documentation
+                    services for seed companies across India, supported by expert export–import consulting to streamline
+                    the entire process and ensure smooth, efficient, and compliant international trade.</p>
+
+                <h3>Import of Germplasm from Overseas Institutions:</h3>
+                <p>With over three decades of experience in senior R&D roles at leading seed companies, our professional
+                    team delivers end-to-end solutions for importing germplasm for research purposes from overseas
+                    institutions. We facilitate the release of imported consignments through close coordination with the
+                    National Bureau of Plant Genetic Resources (NBPGR), India, and international institutions. In
+                    addition, we provide professional services to seed companies across India for obtaining
+                    certification of Post-Entry Quarantine (PEQ) facilities from NBPGR for the cultivation of imported
+                    germplasm.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Plant Variety Protection Modal -->
+    <div id="pvp-modal" class="modal">
+        <div class="modal-content about-modal-content">
+            <span class="close-btn pvp-close-btn">&times;</span>
+            <h2>Plant Variety Protection Services</h2>
+            <div class="modal-body scrollable-content">
+                <h3>Plant Variety Protection related services:</h3>
+                <p>Our expertise dedicated professional team at Ramratan & Company delivering solutions, for the
+                    registration of proprietary hybrids and varieties under the Protection of Plant Varieties and
+                    Farmers’ Rights Authority (PPV&FRA), New Delhi. We offering professional services to seed companies
+                    across India for preparing and submitting new applications, submitting seeds for DUS testing, and
+                    paying annual fees for registered candidate varieties.</p>
             </div>
         </div>
     </div>
