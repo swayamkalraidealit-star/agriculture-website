@@ -48,7 +48,12 @@
                     </div>
                 </div>
                 <div class="card product-card" data-product-id="pollination-bags">
-                    <img src="images/product_images/butter_paper_bag.jpg" alt="Pollination Bags">
+                    <div class="mini-slideshow" id="pollination-bags-slideshow">
+                        <div class="mini-slide active"><img src="images/pollination_bags/bag1.jpg" alt="Pollination Bag 1"></div>
+                        <div class="mini-slide"><img src="images/pollination_bags/bag2.jpg" alt="Pollination Bag 2"></div>
+                        <button class="mini-prev" onclick="event.stopPropagation(); changeMiniSlide(-1, 'pollination-bags-slideshow')">&#10094;</button>
+                        <button class="mini-next" onclick="event.stopPropagation(); changeMiniSlide(1, 'pollination-bags-slideshow')">&#10095;</button>
+                    </div>
                     <div class="card-body">
                         <h3>Pollination & Selfing Bags</h3>
                         <p>Butter paper bags, Brown Kraft seed packets, and Parchment paper bags for breeding.</p>
@@ -65,14 +70,25 @@
 
                 <!-- Expanded List based on Footer -->
                 <div class="card product-card" data-product-id="brown-selfing">
-                    <img src="images/product_images/brown_selfing_bag.jpg" alt="Brown Selfing Bags">
+                    <div class="mini-slideshow" id="brown-selfing-slideshow">
+                        <div class="mini-slide active"><img src="images/brown_selfing_bags/bag1.jpg" alt="Brown Selfing Bag 1"></div>
+                        <div class="mini-slide"><img src="images/brown_selfing_bags/bag2.jpg" alt="Brown Selfing Bag 2"></div>
+                        <div class="mini-slide"><img src="images/brown_selfing_bags/bag3.jpg" alt="Brown Selfing Bag 3"></div>
+                        <button class="mini-prev" onclick="event.stopPropagation(); changeMiniSlide(-1, 'brown-selfing-slideshow')">&#10094;</button>
+                        <button class="mini-next" onclick="event.stopPropagation(); changeMiniSlide(1, 'brown-selfing-slideshow')">&#10095;</button>
+                    </div>
                     <div class="card-body">
                         <h3>Brown Selfing Bags</h3>
                         <p>Specialized bags designed for selfing processes in plant breeding.</p>
                     </div>
                 </div>
                 <div class="card product-card" data-product-id="harvest-bags">
-                    <img src="images/product_images/seed_harvesting_bag_new.jpg" alt="Harvesting Bags">
+                    <div class="mini-slideshow" id="harvest-bags-slideshow">
+                        <div class="mini-slide active"><img src="images/harvesting_bags/bag1.jpg" alt="Harvesting Bag 1"></div>
+                        <div class="mini-slide"><img src="images/harvesting_bags/bag2.jpg" alt="Harvesting Bag 2"></div>
+                        <button class="mini-prev" onclick="event.stopPropagation(); changeMiniSlide(-1, 'harvest-bags-slideshow')">&#10094;</button>
+                        <button class="mini-next" onclick="event.stopPropagation(); changeMiniSlide(1, 'harvest-bags-slideshow')">&#10095;</button>
+                    </div>
                     <div class="card-body">
                         <h3>Harvesting Bags (Nylon/Cloth)</h3>
                         <p>Robust bags available in nylon or cloth for efficient harvesting.</p>
@@ -80,9 +96,9 @@
                 </div>
                 <div class="card product-card" data-product-id="agri-labels">
                     <div class="mini-slideshow" id="labels-slideshow">
-                        <div class="mini-slide active"><img src="images/product_images/label_1.jpg" alt="Agricultural Label 1"></div>
-                        <div class="mini-slide"><img src="images/product_images/label_2.jpg" alt="Agricultural Label 2"></div>
-                        <div class="mini-slide"><img src="images/product_images/label_3.jpg" alt="Agricultural Label 3"></div>
+                        <div class="mini-slide active"><img src="images/labels/label1.jpg" alt="Agricultural Label 1"></div>
+                        <div class="mini-slide"><img src="images/labels/label2.jpg" alt="Agricultural Label 2"></div>
+                        <div class="mini-slide"><img src="images/labels/label3.jpg" alt="Agricultural Label 3"></div>
                         <button class="mini-prev" onclick="event.stopPropagation(); changeMiniSlide(-1, 'labels-slideshow')">&#10094;</button>
                         <button class="mini-next" onclick="event.stopPropagation(); changeMiniSlide(1, 'labels-slideshow')">&#10095;</button>
                     </div>

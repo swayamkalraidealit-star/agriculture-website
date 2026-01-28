@@ -178,7 +178,10 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         'pollination-bags': {
             name: 'Pollination & Selfing Bags',
-            images: ['images/product_images/butter_paper_bag.jpg']
+            images: [
+                'images/pollination_bags/bag1.jpg',
+                'images/pollination_bags/bag2.jpg'
+            ]
         },
         'lab-harvest': {
             name: 'Lab & Harvest Supplies',
@@ -186,15 +189,19 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         'brown-selfing': {
             name: 'Brown Selfing Bags',
-            images: ['images/product_images/brown_selfing_bag.jpg']
+            images: [
+                'images/brown_selfing_bags/bag1.jpg',
+                'images/brown_selfing_bags/bag2.jpg',
+                'images/brown_selfing_bags/bag3.jpg'
+            ]
         },
         'harvest-bags': {
             name: 'Harvesting Bags (Nylon/Cloth)',
-            images: ['images/product_images/seed_harvesting_bag_new.jpg']
+            images: ['images/harvesting_bags/bag1.jpg', 'images/harvesting_bags/bag2.jpg']
         },
         'agri-labels': {
             name: 'Agricultural Labels',
-            images: ['images/product_images/label_1.jpg', 'images/product_images/label_2.jpg', 'images/product_images/label_3.jpg']
+            images: ['images/labels/label1.jpg', 'images/labels/label2.jpg', 'images/labels/label3.jpg']
         }
     };
 
