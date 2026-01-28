@@ -290,10 +290,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Mini Slideshow Logic ---
     window.changeMiniSlide = function(n, slideshowId) {
         const slideshow = document.getElementById(slideshowId);
+        if (!slideshow) return;
+        
         const miniSlides = slideshow.querySelectorAll('.mini-slide');
+        if (miniSlides.length === 0) return;
+        
         let activeIndex = Array.from(miniSlides).findIndex(s => s.classList.contains('active'));
         
-        miniSlides[activeIndex].classList.remove('active');
+        if (activeIndex === -1) {
+            activeIndex = 0;
+        } else {
+            miniSlides[activeIndex].classList.remove('active');
+        }
+        
         activeIndex += n;
         
         if (activeIndex >= miniSlides.length) activeIndex = 0;
@@ -305,7 +314,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Auto-rotate mini-slideshows
     setInterval(() => {
         document.querySelectorAll('.mini-slideshow').forEach(slideshow => {
-            window.changeMiniSlide(1, slideshow.id);
+            if (slideshow.id) {
+                window.changeMiniSlide(1, slideshow.id);
+            }
         });
     }, 4000);
 
