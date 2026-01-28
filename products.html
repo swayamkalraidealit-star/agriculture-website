@@ -39,7 +39,7 @@
             <h2 class="section-title">Our Complete Product Range</h2>
             <div class="grid-3">
                 <!-- Existing Highlights -->
-                <div class="card">
+                <div class="card product-card" data-product-id="nylon-nets">
                     <img src="images/product_images/nylon_cage_nets.jpg" alt="Nylon Nets">
                     <div class="card-body">
                         <h3>Nylon Cage & Shade Nets</h3>
@@ -47,15 +47,14 @@
                             Nets.</p>
                     </div>
                 </div>
-                <div class="card">
-                    <img src="images/product_images/butter_paper_bag.jpg"
-                        alt="Pollination Bags">
+                <div class="card product-card" data-product-id="pollination-bags">
+                    <img src="images/product_images/butter_paper_bag.jpg" alt="Pollination Bags">
                     <div class="card-body">
                         <h3>Pollination & Selfing Bags</h3>
                         <p>Butter paper bags, Brown Kraft seed packets, and Parchment paper bags for breeding.</p>
                     </div>
                 </div>
-                <div class="card">
+                <div class="card product-card" data-product-id="lab-harvest">
                     <img src="images/product_images/Seed%20Harvesting%20Bag%20%20-%20Fine%20Quality%2024%20mesh.jpg"
                         alt="Lab Supplies">
                     <div class="card-body">
@@ -65,22 +64,28 @@
                 </div>
 
                 <!-- Expanded List based on Footer -->
-                <div class="card">
+                <div class="card product-card" data-product-id="brown-selfing">
                     <img src="images/product_images/brown_selfing_bag.jpg" alt="Brown Selfing Bags">
                     <div class="card-body">
                         <h3>Brown Selfing Bags</h3>
                         <p>Specialized bags designed for selfing processes in plant breeding.</p>
                     </div>
                 </div>
-                <div class="card">
+                <div class="card product-card" data-product-id="harvest-bags">
                     <img src="images/product_images/seed_harvesting_bag_new.jpg" alt="Harvesting Bags">
                     <div class="card-body">
                         <h3>Harvesting Bags (Nylon/Cloth)</h3>
                         <p>Robust bags available in nylon or cloth for efficient harvesting.</p>
                     </div>
                 </div>
-                <div class="card">
-                    <img src="images/product_images/agricultural_labels.jpg" alt="Agricultural Labels">
+                <div class="card product-card" data-product-id="agri-labels">
+                    <div class="mini-slideshow" id="labels-slideshow">
+                        <div class="mini-slide active"><img src="images/product_images/label_1.jpg" alt="Agricultural Label 1"></div>
+                        <div class="mini-slide"><img src="images/product_images/label_2.jpg" alt="Agricultural Label 2"></div>
+                        <div class="mini-slide"><img src="images/product_images/label_3.jpg" alt="Agricultural Label 3"></div>
+                        <button class="mini-prev" onclick="event.stopPropagation(); changeMiniSlide(-1, 'labels-slideshow')">&#10094;</button>
+                        <button class="mini-next" onclick="event.stopPropagation(); changeMiniSlide(1, 'labels-slideshow')">&#10095;</button>
+                    </div>
                     <div class="card-body">
                         <h3>Agricultural Labels</h3>
                         <p>Weather-resistant labels for clear field identification.</p>
@@ -89,6 +94,7 @@
             </div>
         </div>
     </section>
+
 
     <footer id="contact">
         <div class="container footer-content">
@@ -141,7 +147,22 @@
         </div>
     </footer>
 
-    <!-- Reuse Contact Modal for Logic Consistency if needed, though button not explicitly here yet -->
+
+
+    <!-- Product Gallery Modal -->
+    <div id="product-gallery-modal" class="modal">
+        <div class="modal-content gallery-modal-content">
+            <span class="close-btn gallery-close-btn">&times;</span>
+            <h2 id="gallery-product-name">Product Gallery</h2>
+            <div class="modal-body">
+                <div id="gallery-images" class="gallery-grid">
+                    <!-- Images will be injected here by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Modal -->
     <div id="contact-modal" class="modal">
         <div class="modal-content">
             <span class="close-btn">&times;</span>

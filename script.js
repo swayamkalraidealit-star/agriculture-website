@@ -105,77 +105,136 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-    // --- Regulatory Compliance Modal Logic ---
-    const regModal = document.getElementById("regulatory-modal");
-    const regBtn = document.getElementById("regulatory-service-box");
-    const regCloseSpan = document.getElementsByClassName("regulatory-close-btn")[0];
+    // --- Export and Import Documentation Modal ---
+    const impExpDocsModal = document.getElementById("imp-exp-docs-modal");
+    const impExpDocsBtn = document.getElementById("imp-exp-docs-box");
+    const impExpDocsClose = document.querySelector(".imp-exp-docs-close-btn");
 
-    if (regBtn) {
-        regBtn.onclick = function() {
-            regModal.style.display = "block";
-        }
+    if (impExpDocsBtn) {
+        impExpDocsBtn.onclick = () => impExpDocsModal.style.display = "block";
+    }
+    if (impExpDocsClose) {
+        impExpDocsClose.onclick = () => impExpDocsModal.style.display = "none";
     }
 
-    if (regCloseSpan) {
-        regCloseSpan.onclick = function() {
-            regModal.style.display = "none";
-        }
+    // --- Import of Germplasm Modal ---
+    const germplasmModal = document.getElementById("germplasm-import-modal");
+    const germplasmBtn = document.getElementById("germplasm-import-box");
+    const germplasmClose = document.querySelector(".germplasm-import-close-btn");
+
+    if (germplasmBtn) {
+        germplasmBtn.onclick = () => germplasmModal.style.display = "block";
+    }
+    if (germplasmClose) {
+        germplasmClose.onclick = () => germplasmModal.style.display = "none";
     }
 
-    // --- Import & Export Modal Logic ---
-    const impExpModal = document.getElementById("import-export-modal");
-    const impExpBtn = document.getElementById("import-export-service-box");
-    const impExpCloseSpan = document.getElementsByClassName("import-export-close-btn")[0];
+    // --- Seed License Modal ---
+    const seedLicenseModal = document.getElementById("seed-license-modal");
+    const seedLicenseBtn = document.getElementById("seed-license-box");
+    const seedLicenseClose = document.querySelector(".seed-license-close-btn");
 
-    if (impExpBtn) {
-        impExpBtn.onclick = function() {
-            impExpModal.style.display = "block";
-        }
+    if (seedLicenseBtn) {
+        seedLicenseBtn.onclick = () => seedLicenseModal.style.display = "block";
+    }
+    if (seedLicenseClose) {
+        seedLicenseClose.onclick = () => seedLicenseModal.style.display = "none";
     }
 
-    if (impExpCloseSpan) {
-        impExpCloseSpan.onclick = function() {
-            impExpModal.style.display = "none";
-        }
+    // --- DSIR R&D Modal ---
+    const dsirModal = document.getElementById("dsir-rnd-modal");
+    const dsirBtn = document.getElementById("dsir-rnd-box");
+    const dsirClose = document.querySelector(".dsir-rnd-close-btn");
+
+    if (dsirBtn) {
+        dsirBtn.onclick = () => dsirModal.style.display = "block";
+    }
+    if (dsirClose) {
+        dsirClose.onclick = () => dsirModal.style.display = "none";
     }
 
-    // --- PVP Modal Logic ---
-    const pvpModal = document.getElementById("pvp-modal");
-    const pvpBtn = document.getElementById("pvp-service-box");
-    const pvpCloseSpan = document.getElementsByClassName("pvp-close-btn")[0];
+    // --- Plant Variety Protection Modal ---
+    const pvpServicesModal = document.getElementById("pvp-services-modal");
+    const pvpServicesBtn = document.getElementById("pvp-services-box");
+    const pvpServicesClose = document.querySelector(".pvp-services-close-btn");
 
-    if (pvpBtn) {
-        pvpBtn.onclick = function() {
-            pvpModal.style.display = "block";
-        }
+    if (pvpServicesBtn) {
+        pvpServicesBtn.onclick = () => pvpServicesModal.style.display = "block";
+    }
+    if (pvpServicesClose) {
+        pvpServicesClose.onclick = () => pvpServicesModal.style.display = "none";
     }
 
-    if (pvpCloseSpan) {
-        pvpCloseSpan.onclick = function() {
-            pvpModal.style.display = "none";
+    // --- Product Gallery Modal Logic ---
+    const galleryModal = document.getElementById("product-gallery-modal");
+    const galleryClose = document.querySelector(".gallery-close-btn");
+    const galleryGrid = document.getElementById("gallery-images");
+    const galleryProductName = document.getElementById("gallery-product-name");
+
+    const productImages = {
+        'nylon-nets': {
+            name: 'Nylon Cage & Shade Nets',
+            images: ['images/product_images/nylon_cage_nets.jpg']
+        },
+        'pollination-bags': {
+            name: 'Pollination & Selfing Bags',
+            images: ['images/product_images/butter_paper_bag.jpg']
+        },
+        'lab-harvest': {
+            name: 'Lab & Harvest Supplies',
+            images: ['images/product_images/Seed%20Harvesting%20Bag%20%20-%20Fine%20Quality%2024%20mesh.jpg']
+        },
+        'brown-selfing': {
+            name: 'Brown Selfing Bags',
+            images: ['images/product_images/brown_selfing_bag.jpg']
+        },
+        'harvest-bags': {
+            name: 'Harvesting Bags (Nylon/Cloth)',
+            images: ['images/product_images/seed_harvesting_bag_new.jpg']
+        },
+        'agri-labels': {
+            name: 'Agricultural Labels',
+            images: ['images/product_images/label_1.jpg', 'images/product_images/label_2.jpg', 'images/product_images/label_3.jpg']
         }
+    };
+
+    function openGallery(productId) {
+        const product = productImages[productId];
+        if (!product) return;
+
+        galleryProductName.innerText = product.name;
+        galleryGrid.innerHTML = '';
+
+        product.images.forEach(imgSrc => {
+            const item = document.createElement('div');
+            item.className = 'gallery-item';
+            item.innerHTML = `<img src="${imgSrc}" alt="${product.name}">`;
+            galleryGrid.appendChild(item);
+        });
+
+        galleryModal.style.display = "block";
+    }
+
+    document.querySelectorAll('.product-card').forEach(card => {
+        card.addEventListener('click', () => {
+            const productId = card.getAttribute('data-product-id');
+            openGallery(productId);
+        });
+    });
+
+    if (galleryClose) {
+        galleryClose.onclick = () => galleryModal.style.display = "none";
     }
 
     // Update window.onclick to handle all modals
     window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-        if (event.target == aboutModal) {
-            aboutModal.style.display = "none";
-        }
-        if (event.target == regModal) {
-            regModal.style.display = "none";
-        }
-        if (event.target == impExpModal) {
-            impExpModal.style.display = "none";
-        }
-        if (event.target == pvpModal) {
-            pvpModal.style.display = "none";
-        }
+        const modals = [modal, aboutModal, impExpDocsModal, germplasmModal, seedLicenseModal, dsirModal, pvpServicesModal, galleryModal];
+        modals.forEach(m => {
+            if (m && event.target == m) {
+                m.style.display = "none";
+            }
+        });
     }
-
-
 
     // --- Contact Form Submission ---
     const contactForm = document.getElementById('contactForm');
@@ -188,6 +247,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const originalBtnText = submitBtn.innerText;
             submitBtn.innerText = 'Sending...';
             submitBtn.disabled = true;
+// ... rest of the file
 
             const formData = new FormData(contactForm);
             const data = Object.fromEntries(formData.entries());
@@ -220,4 +280,26 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+    // --- Mini Slideshow Logic ---
+    window.changeMiniSlide = function(n, slideshowId) {
+        const slideshow = document.getElementById(slideshowId);
+        const miniSlides = slideshow.querySelectorAll('.mini-slide');
+        let activeIndex = Array.from(miniSlides).findIndex(s => s.classList.contains('active'));
+        
+        miniSlides[activeIndex].classList.remove('active');
+        activeIndex += n;
+        
+        if (activeIndex >= miniSlides.length) activeIndex = 0;
+        if (activeIndex < 0) activeIndex = miniSlides.length - 1;
+        
+        miniSlides[activeIndex].classList.add('active');
+    };
+
+    // Auto-rotate mini-slideshows
+    setInterval(() => {
+        document.querySelectorAll('.mini-slideshow').forEach(slideshow => {
+            window.changeMiniSlide(1, slideshow.id);
+        });
+    }, 4000);
+
 });

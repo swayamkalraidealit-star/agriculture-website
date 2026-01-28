@@ -42,7 +42,8 @@ ul {
 
 .section {
     padding: 70px 0;
-    border-bottom: 1px solid #dcdcdc; /* Visual partition between sections */
+    border-bottom: 1px solid #dcdcdc;
+    /* Visual partition between sections */
 }
 
 .bg-light {
@@ -96,15 +97,19 @@ ul {
 .logo {
     display: flex;
     align-items: center;
-    gap: 10px; /* Kept from original, assuming it's still desired for icon/text spacing */
+    gap: 10px;
+    /* Kept from original, assuming it's still desired for icon/text spacing */
 }
 
 .logo-text {
     display: flex;
     flex-direction: column;
-    font-size: 1.5rem; /* Moved from original .logo */
-    font-weight: 700; /* Changed from 'bold' in original .logo */
-    color: var(--accent-color); /* Moved from original .logo */
+    font-size: 1.5rem;
+    /* Moved from original .logo */
+    font-weight: 700;
+    /* Changed from 'bold' in original .logo */
+    color: var(--accent-color);
+    /* Moved from original .logo */
 }
 
 .tagline {
@@ -287,10 +292,25 @@ ul {
     border-bottom: 4px solid var(--accent-color);
 }
 
-#regulatory-service-box,
-#import-export-service-box,
-#pvp-service-box {
+#imp-exp-docs-box,
+#germplasm-import-box,
+#seed-license-box,
+#dsir-rnd-box,
+#pvp-services-box,
+.product-card {
     cursor: pointer;
+}
+
+.grid-center-last {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.grid-center-last>div {
+    flex: 0 1 calc(33.33% - 20px);
+    min-width: 300px;
 }
 
 .service-box .icon {
@@ -309,10 +329,14 @@ ul {
 
 .about-image img {
     width: 100%;
-    /* border-radius: 10px; */ /* Removed for logo */
-    /* border: 5px solid white; */ /* Removed for logo */
-    /* box-shadow: 15px 15px 0 var(--secondary-color); */ /* Removed for logo */
-    display: block; /* Ensures no bottom gap */
+    /* border-radius: 10px; */
+    /* Removed for logo */
+    /* border: 5px solid white; */
+    /* Removed for logo */
+    /* box-shadow: 15px 15px 0 var(--secondary-color); */
+    /* Removed for logo */
+    display: block;
+    /* Ensures no bottom gap */
 }
 
 .left-align {
@@ -402,7 +426,8 @@ footer {
 .products-col {
     flex: 2;
     min-width: 300px;
-    text-align: center; /* Center the heading */
+    text-align: center;
+    /* Center the heading */
 }
 
 .footer-col h3 {
@@ -421,7 +446,8 @@ footer {
     /* 2 Columns */
     gap: 10px 20px;
     /* Row Gap 10px, Column Gap 20px */
-    text-align: left; /* Keep list items left aligned */
+    text-align: left;
+    /* Keep list items left aligned */
 }
 
 .footer-list-grid li {
@@ -522,15 +548,22 @@ footer {
     width: 90%;
     max-width: 500px;
     border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     animation: slideDown 0.3s ease-out;
     position: relative;
     overflow: hidden;
 }
 
 @keyframes slideDown {
-    from { transform: translateY(-50px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 .close-btn {
@@ -616,9 +649,11 @@ footer {
 
 .form-subtitle {
     color: #666;
-    font-size: 0.9rem !important; /* Override modal p style */
+    font-size: 0.9rem !important;
+    /* Override modal p style */
     margin-bottom: 25px !important;
-    display: block !important; /* Override flex */
+    display: block !important;
+    /* Override flex */
     text-align: center !important;
 }
 
@@ -644,15 +679,18 @@ footer {
     width: 100%;
     padding: 12px 15px;
     border: 1px solid #ccc;
-    border-radius: 25px; /* Rounded pill shape */
-    background-color: #e8f4fd; /* Light blueish tint */
+    border-radius: 25px;
+    /* Rounded pill shape */
+    background-color: #e8f4fd;
+    /* Light blueish tint */
     font-size: 0.95rem;
     outline: none;
     transition: 0.3s;
 }
 
 .contact-form textarea {
-    border-radius: 15px; /* Less rounded for textarea */
+    border-radius: 15px;
+    /* Less rounded for textarea */
     resize: vertical;
 }
 
@@ -666,7 +704,8 @@ footer {
 .btn-submit {
     width: 100%;
     padding: 12px;
-    background-color: #1b5e20; /* Dark Green */
+    background-color: #1b5e20;
+    /* Dark Green */
     color: white;
     border: none;
     border-radius: 25px;
@@ -680,13 +719,17 @@ footer {
 
 /* --- About Modal Specifics --- */
 .about-modal-content {
-    max-width: 800px; /* Wider for reading */
+    max-width: 800px;
+    /* Wider for reading */
 }
 
 .scrollable-content {
-    max-height: 60vh; /* Limit height to keep it within viewport */
-    overflow-y: auto; /* Enable vertical scrolling */
-    padding-right: 15px; /* Space for scrollbar */
+    max-height: 60vh;
+    /* Limit height to keep it within viewport */
+    overflow-y: auto;
+    /* Enable vertical scrolling */
+    padding-right: 15px;
+    /* Space for scrollbar */
     text-align: justify;
 }
 
@@ -707,6 +750,69 @@ footer {
 
 .scrollable-content::-webkit-scrollbar-thumb:hover {
     background: #555;
+}
+
+/* --- Mini Slideshow inside Cards --- */
+.mini-slideshow {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+}
+
+.mini-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.mini-slide.active {
+    display: block;
+}
+
+.mini-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.mini-prev,
+.mini-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.4);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 5;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    transition: background 0.3s;
+}
+
+.mini-prev:hover,
+.mini-next:hover {
+    background: var(--accent-color);
+    color: var(--text-dark);
+}
+
+.mini-prev {
+    left: 10px;
+}
+
+.mini-next {
+    right: 10px;
 }
 
 .scrollable-content h3 {
