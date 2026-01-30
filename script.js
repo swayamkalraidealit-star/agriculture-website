@@ -1,6 +1,45 @@
-document.addEventListener('DOMContentLoaded', () => {
+// --- Mini Slideshow Logic ---
+window.changeMiniSlide = function(n, slideshowId) {
+    console.log('changeMiniSlide called with n:', n, 'slideshowId:', slideshowId);
+    const slideshow = document.getElementById(slideshowId);
+    if (!slideshow) {
+        console.log('Slideshow not found:', slideshowId);
+        return;
+    }
+    
+    const miniSlides = slideshow.querySelectorAll('.mini-slide');
+    console.log('Found slides:', miniSlides.length);
+    if (miniSlides.length === 0) {
+        console.log('No mini slides found');
+        return;
+    }
+    
+    // Find currently active slide
+    let activeIndex = Array.from(miniSlides).findIndex(s => s.classList.contains('active'));
+    console.log('Current active index:', activeIndex);
+    
+    // If no active slide, start at 0
+    if (activeIndex === -1) {
+        activeIndex = 0;
+    }
+    
+    // Remove active class from current slide
+    miniSlides[activeIndex].classList.remove('active');
+    
+    // Calculate new index
+    activeIndex += n;
+    
+    // Wrap around
+    if (activeIndex >= miniSlides.length) activeIndex = 0;
+    if (activeIndex < 0) activeIndex = miniSlides.length - 1;
+    
+    console.log('New active index:', activeIndex);
+    
+    // Add active class to new slide
+    miniSlides[activeIndex].classList.add('active');
+};
 
-    // --- Carousel Logic ---
+document.addEventListener('DOMContentLoaded', () => {
     const slides = document.querySelectorAll('.carousel-slide');
     const prevBtn = document.querySelector('.prev-btn');
     const nextBtn = document.querySelector('.next-btn');
@@ -30,22 +69,31 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Button Events
-    nextBtn.addEventListener('click', () => {
-        nextSlide();
-        resetTimer();
-    });
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            nextSlide();
+            resetTimer();
+        });
+    }
 
-    prevBtn.addEventListener('click', () => {
-        prevSlide();
-        resetTimer();
-    });
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            prevSlide();
+            resetTimer();
+        });
+    }
 
     // Auto Play
-    let slideTimer = setInterval(nextSlide, slideInterval);
+    let slideTimer = null;
+    if (slides.length > 0) {
+        slideTimer = setInterval(nextSlide, slideInterval);
+    }
 
     function resetTimer() {
-        clearInterval(slideTimer);
-        slideTimer = setInterval(nextSlide, slideInterval);
+        if (slideTimer) clearInterval(slideTimer);
+        if (slides.length > 0) {
+            slideTimer = setInterval(nextSlide, slideInterval);
+        }
     }
 
     // --- Mobile Menu Toggle ---
@@ -167,74 +215,95 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Product Gallery Modal Logic ---
     const galleryModal = document.getElementById("product-gallery-modal");
-    const galleryClose = document.querySelector(".gallery-close-btn");
-    const galleryGrid = document.getElementById("gallery-images");
-    const galleryProductName = document.getElementById("gallery-product-name");
+    console.log('Checking for gallery modal:', galleryModal ? 'FOUND' : 'NOT FOUND');
+    console.log('Product cards found:', document.querySelectorAll('.product-card').length);
+    
+    if (galleryModal) {
+        console.log('Gallery modal exists, setting up...');
+        const galleryClose = document.querySelector(".gallery-close-btn");
+        const galleryGrid = document.getElementById("gallery-images");
+        const galleryProductName = document.getElementById("gallery-product-name");
 
-    const productImages = {
-        'nylon-nets': {
-            name: 'Nylon Cage & Shade Nets',
-            images: ['images/product_images/nylon_cage_nets.jpg']
-        },
-        'pollination-bags': {
-            name: 'Pollination & Selfing Bags',
-            images: [
-                'images/pollination_bags/bag1.jpg',
-                'images/pollination_bags/bag2.jpg'
-            ]
-        },
-        'lab-harvest': {
-            name: 'Lab & Harvest Supplies',
-            images: ['images/product_images/Seed%20Harvesting%20Bag%20%20-%20Fine%20Quality%2024%20mesh.jpg']
-        },
-        'brown-selfing': {
-            name: 'Brown Selfing Bags',
-            images: [
-                'images/brown_selfing_bags/bag1.jpg',
-                'images/brown_selfing_bags/bag2.jpg',
-                'images/brown_selfing_bags/bag3.jpg'
-            ]
-        },
-        'harvest-bags': {
-            name: 'Harvesting Bags (Nylon/Cloth)',
-            images: ['images/harvesting_bags/bag1.jpg', 'images/harvesting_bags/bag2.jpg']
-        },
-        'agri-labels': {
-            name: 'Agricultural Labels',
-            images: ['images/labels/label1.jpg', 'images/labels/label2.jpg', 'images/labels/label3.jpg']
+        const productImages = {
+            'nylon-nets': {
+                name: 'Nylon Cage & Shade Nets',
+                images: ['images/product_images/nylon_cage_nets.jpg']
+            },
+            'pollination-bags': {
+                name: 'Pollination & Selfing Bags',
+                images: ['images/pollination_bags/bag1.jpg', 'images/pollination_bags/bag2.jpg']
+            },
+            'lab-harvest': {
+                name: 'Lab & Harvest Supplies',
+                images: ['images/product_images/Seed%20Harvesting%20Bag%20%20-%20Fine%20Quality%2024%20mesh.jpg', 'images/product_images/lab_harvest_bags.jpg', 'images/product_images/seedling_tray.jpg', 'images/product_images/plant_stakes.jpg']
+            },
+            'brown-selfing': {
+                name: 'Brown Selfing Bags',
+                images: ['images/brown_selfing_bags/bag1.jpg', 'images/brown_selfing_bags/bag2.jpg', 'images/brown_selfing_bags/bag3.jpg']
+            },
+            'harvest-bags': {
+                name: 'Harvesting Bags (Nylon/Cloth)',
+                images: ['images/harvesting_bags/bag1.jpg', 'images/harvesting_bags/bag2.jpg', 'images/harvesting_bags/bag3.jpg', 'images/harvesting_bags/bag4.jpg', 'images/harvesting_bags/bag5.jpg']
+            },
+            'agri-labels': {
+                name: 'Agricultural Labels',
+                images: ['images/labels/label1.jpg', 'images/labels/label2.jpg', 'images/labels/label3.jpg']
+            }
+        };
+
+        function openGallery(productId) {
+            const product = productImages[productId];
+            if (!product) return;
+
+            galleryProductName.innerText = product.name;
+            galleryGrid.innerHTML = '';
+
+            product.images.forEach(imgSrc => {
+                const item = document.createElement('div');
+                item.className = 'gallery-item';
+                item.innerHTML = `<img src="${imgSrc}" alt="${product.name}">`;
+                galleryGrid.appendChild(item);
+            });
+
+            galleryModal.style.display = "block";
         }
-    };
 
-    function openGallery(productId) {
-        const product = productImages[productId];
-        if (!product) return;
-
-        galleryProductName.innerText = product.name;
-        galleryGrid.innerHTML = '';
-
-        product.images.forEach(imgSrc => {
-            const item = document.createElement('div');
-            item.className = 'gallery-item';
-            item.innerHTML = `<img src="${imgSrc}" alt="${product.name}">`;
-            galleryGrid.appendChild(item);
+        // Set up click handlers for product cards
+        const cards = document.querySelectorAll('.product-card');
+        console.log('Attaching click handlers to', cards.length, 'cards');
+        
+        cards.forEach((card, idx) => {
+            console.log('Card', idx, ':', card.getAttribute('data-product-id'));
+            card.addEventListener('click', function(e) {
+                console.log('CLICK EVENT FIRED');
+                // Skip if clicking on buttons
+                if (e.target.closest('.mini-prev, .mini-next')) {
+                    console.log('Clicked on mini button');
+                    return;
+                }
+                
+                const productId = card.getAttribute('data-product-id');
+                console.log('Card clicked, productId:', productId);
+                if (productId) {
+                    console.log('Opening gallery for:', productId);
+                    openGallery(productId);
+                }
+            });
         });
 
-        galleryModal.style.display = "block";
-    }
-
-    document.querySelectorAll('.product-card').forEach(card => {
-        card.addEventListener('click', () => {
-            const productId = card.getAttribute('data-product-id');
-            openGallery(productId);
-        });
-    });
-
-    if (galleryClose) {
-        galleryClose.onclick = () => galleryModal.style.display = "none";
+        // Close button handler
+        if (galleryClose) {
+            galleryClose.addEventListener('click', () => {
+                galleryModal.style.display = "none";
+            });
+        }
+    } else {
+        console.log('Gallery modal not found on this page');
     }
 
     // Update window.onclick to handle all modals
     window.onclick = function(event) {
+        const galleryModal = document.getElementById("product-gallery-modal");
         const modals = [modal, aboutModal, impExpDocsModal, germplasmModal, seedLicenseModal, dsirModal, pvpServicesModal, galleryModal];
         modals.forEach(m => {
             if (m && event.target == m) {
@@ -287,30 +356,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
-    // --- Mini Slideshow Logic ---
-    window.changeMiniSlide = function(n, slideshowId) {
-        const slideshow = document.getElementById(slideshowId);
-        if (!slideshow) return;
-        
-        const miniSlides = slideshow.querySelectorAll('.mini-slide');
-        if (miniSlides.length === 0) return;
-        
-        let activeIndex = Array.from(miniSlides).findIndex(s => s.classList.contains('active'));
-        
-        if (activeIndex === -1) {
-            activeIndex = 0;
-        } else {
-            miniSlides[activeIndex].classList.remove('active');
-        }
-        
-        activeIndex += n;
-        
-        if (activeIndex >= miniSlides.length) activeIndex = 0;
-        if (activeIndex < 0) activeIndex = miniSlides.length - 1;
-        
-        miniSlides[activeIndex].classList.add('active');
-    };
-
     // Auto-rotate mini-slideshows
     setInterval(() => {
         document.querySelectorAll('.mini-slideshow').forEach(slideshow => {
