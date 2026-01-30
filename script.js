@@ -235,7 +235,7 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             'lab-harvest': {
                 name: 'Lab & Harvest Supplies',
-                images: ['images/product_images/Seed%20Harvesting%20Bag%20%20-%20Fine%20Quality%2024%20mesh.jpg', 'images/product_images/lab_harvest_bags.jpg', 'images/product_images/seedling_tray.jpg', 'images/product_images/plant_stakes.jpg']
+                images: ['images/product_images/Seed%20Harvesting%20Bag%20%20-%20Fine%20Quality%2024%20mesh.jpg', 'images/product_images/seedling_tray.jpg', 'images/product_images/plant_stakes.jpg']
             },
             'brown-selfing': {
                 name: 'Brown Selfing Bags',
