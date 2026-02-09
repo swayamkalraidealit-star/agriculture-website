@@ -227,19 +227,55 @@ document.addEventListener('DOMContentLoaded', () => {
         const productImages = {
             'nylon-nets': {
                 name: 'Nylon Cage & Shade Nets',
-                images: ['images/product_images/nylon_cage_nets.jpg']
+                images: [
+                    'images/product_images/nylon_cage_nets.jpg',
+                    'images/nylon_cage_nets_folder/nylon1.jpg',
+                    'images/nylon_cage_nets_folder/nylon2.jpg',
+                    'images/nylon_cage_nets_folder/nylon3.jpg'
+                ]
             },
             'pollination-bags': {
                 name: 'Pollination & Selfing Bags',
-                images: ['images/pollination_bags/bag1.jpg', 'images/pollination_bags/bag2.jpg']
+                images: [
+                    'images/pollination_bags/bag1.jpg',
+                    'images/pollination_bags/bag2.jpg',
+                    'images/pollination_bags/butter_paper_1.jpg',
+                    'images/pollination_bags/butter_paper_2.jpg',
+                    'images/pollination_bags/butter_paper_3.jpg',
+                    'images/pollination_bags/butter_paper_4.jpg',
+                    'images/pollination_bags/butter_paper_5.jpg'
+                ]
             },
             'lab-harvest': {
                 name: 'Lab & Harvest Supplies',
-                images: ['images/product_images/Seed%20Harvesting%20Bag%20%20-%20Fine%20Quality%2024%20mesh.jpg', 'images/product_images/seedling_tray.jpg', 'images/product_images/plant_stakes.jpg']
+                images: [
+                    'images/product_images/Seed%20Harvesting%20Bag%20%20-%20Fine%20Quality%2024%20mesh.jpg',
+                    'images/product_images/seedling_tray.jpg',
+                    'images/product_images/plant_stakes.jpg',
+                    'images/misc_lab_supplies/lab1.jpg',
+                    'images/misc_lab_supplies/lab3.jpg',
+                    'images/misc_lab_supplies/lab4.jpg',
+                    'images/misc_lab_supplies/lab5.jpg'
+                ]
             },
             'brown-selfing': {
-                name: 'Brown Selfing Bags',
-                images: ['images/brown_selfing_bags/bag1.jpg', 'images/brown_selfing_bags/bag2.jpg', 'images/brown_selfing_bags/bag3.jpg']
+                name: 'Brown Selfing & Kraft Paper Bags',
+                images: [
+                    'images/brown_selfing_bags/bag1.jpg',
+                    'images/brown_selfing_bags/bag2.jpg',
+                    'images/brown_selfing_bags/bag3.jpg',
+                    'images/kraft_paper_bags/kraft1.jpg',
+                    'images/kraft_paper_bags/kraft2.jpg',
+                    'images/kraft_paper_bags/kraft3.jpg',
+                    'images/kraft_paper_bags/kraft4.jpg',
+                    'images/kraft_paper_bags/kraft5.jpg',
+                    'images/kraft_paper_bags/kraft6.jpg',
+                    'images/kraft_paper_bags/kraft7.jpg',
+                    'images/kraft_paper_bags/kraft8.jpg',
+                    'images/kraft_paper_bags/kraft9.jpg',
+                    'images/kraft_paper_bags/kraft10.jpg',
+                    'images/kraft_paper_bags/kraft11.jpg'
+                ]
             },
             'harvest-bags': {
                 name: 'Harvesting Bags (Nylon/Cloth)',
@@ -247,7 +283,22 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             'agri-labels': {
                 name: 'Agricultural Labels',
-                images: ['images/labels/label1.jpg', 'images/labels/label2.jpg', 'images/labels/label3.jpg']
+                images: [
+                    'images/labels/label1.jpg',
+                    'images/labels/label2.jpg',
+                    'images/labels/label3.jpg',
+                    'images/labels/label4.jpg',
+                    'images/labels/label5.jpg',
+                    'images/labels/label6.jpg',
+                    'images/labels/label7.jpg',
+                    'images/labels/label8.jpg',
+                    'images/labels/label9.jpg',
+                    'images/labels/label10.jpg',
+                    'images/labels/label11.jpg',
+                    'images/labels/label12.jpg',
+                    'images/labels/label13.jpg',
+                    'images/labels/label14.jpg'
+                ]
             }
         };
 
